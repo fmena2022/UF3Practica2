@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="UF3Practica2">
+  <ClassDiagramComponents>
+    <Class name="Biblioteca" package="" visibility="public" xPosition="208.0" yPosition="410.0">
+      <Fields>
+        <Field name="copies" type="List&lt;Copia&gt;" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Llibre" package="" visibility="public" isAbstract="true" xPosition="976.0" yPosition="61.0">
+      <Fields>
+        <Field name="nom" type="String" visibility="private"/>
+        <Field name="tipus" type="String" visibility="private"/>
+        <Field name="editorial" type="String" visibility="private"/>
+        <Field name="any" type="int" visibility="private"/>
+        <Field name="autor" type="Autor" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Autor" package="" visibility="public" xPosition="568.0" yPosition="61.0">
+      <Fields>
+        <Field name="nacionalitat" type="String" visibility="private"/>
+        <Field name="dataNaixement" type="LocalDate" visibility="private"/>
+        <Field name="nom" type="String" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Lector" package="" visibility="public" xPosition="208.0" yPosition="61.0">
+      <Fields>
+        <Field name="limitPrestec" type="int" visibility="private"/>
+        <Field name="nom" type="String" visibility="private"/>
+        <Field name="dni" type="String" visibility="private"/>
+        <Field name="llibres" type="List&lt;Copia&gt;" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="retornarLlibre" returnType="void" visibility="public"/>
+        <Method name="afegirLlibre" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Copia" package="" visibility="public" xPosition="616.0" yPosition="372.0">
+      <Fields>
+        <Field name="identificador" type="String" visibility="private"/>
+        <Field name="estat" type="String" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <IsRelation name="is" source="Copia" target="Llibre"/>
+    <HasRelation name="Visita" source="Lector" target="Biblioteca" type="Aggregation" sourceCardinality="0..1" targetCardinality="0..*" collectionType="List"/>
+    <HasRelation name="Agafa" source="Lector" target="Copia" type="Aggregation" sourceCardinality="0..1" targetCardinality="1..*" collectionType="List"/>
+    <HasRelation name="Escribeix" source="Autor" target="Llibre" type="Composition" sourceCardinality="0..1" targetCardinality="1..*" collectionType="List"/>
+    <HasRelation name="Conté" source="Biblioteca" target="Copia" type="Composition" sourceCardinality="0..1" targetCardinality="1..*" collectionType="List"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
